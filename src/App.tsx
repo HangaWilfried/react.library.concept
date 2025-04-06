@@ -1,9 +1,13 @@
-import DownloadPdf from './components/DownloadPdf'
+import { createBrowserRouter, RouterProvider } from "react-router"
+import { AuthProvider } from "./context/auth.context"
+import routes from "./routes"
 
-function App() {
-  return (
-    <DownloadPdf />
-  )
+export default function App() {
+    const router = createBrowserRouter(routes);
+
+    return (
+        <AuthProvider>
+            <RouterProvider router={router} />
+        </AuthProvider>
+    )
 }
-
-export default App
